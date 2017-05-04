@@ -19,6 +19,13 @@ namespace OrientDB.Net.SqlCommandBuilder
 
         #region Insert
 
+        public static IOInsert CreateSqlInsert(string className = null)
+        {
+            if(string.IsNullOrWhiteSpace(className))
+                return new SqlInsert();
+            return new SqlInsert().Into(className);
+        }
+
         public IOInsert Insert(string className)
         {
             return Into(className);
