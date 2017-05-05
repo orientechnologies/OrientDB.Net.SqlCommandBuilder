@@ -1,4 +1,5 @@
 ﻿using OrientDB.Net.Core.Models;
+using OrientDB.Net.SqlCommandBuilder.Interfaces;
 using OrientDB.Net.SqlCommandBuilder.Protocol;
 
 // syntax:
@@ -9,7 +10,7 @@ using OrientDB.Net.SqlCommandBuilder.Protocol;
 
 namespace OrientDB.Net.SqlCommandBuilder
 {
-    public class SqlDeleteDocument
+    public class SqlDeleteDocument : IOrientDBQueryable
     {
         private SqlQuery _sqlQuery;
 
@@ -75,91 +76,91 @@ namespace OrientDB.Net.SqlCommandBuilder
 
         #region Where with conditions
 
-        public SqlDeleteDocument Where(string field)
+        public IOrientDBQueryable Where(string field)
         {
             _sqlQuery.Where(field);
 
             return this;
         }
 
-        public SqlDeleteDocument And(string field)
+        public IOrientDBQueryable And(string field)
         {
             _sqlQuery.And(field);
 
             return this;
         }
 
-        public SqlDeleteDocument Or(string field)
+        public IOrientDBQueryable Or(string field)
         {
             _sqlQuery.Or(field);
 
             return this;
         }
 
-        public SqlDeleteDocument Equals<T>(T item)
+        public IOrientDBQueryable Equals<T>(T item)
         {
             _sqlQuery.Equals<T>(item);
 
             return this;
         }
 
-        public SqlDeleteDocument NotEquals<T>(T item)
+        public IOrientDBQueryable NotEquals<T>(T item)
         {
             _sqlQuery.NotEquals<T>(item);
 
             return this;
         }
 
-        public SqlDeleteDocument Lesser<T>(T item)
+        public IOrientDBQueryable Lesser<T>(T item)
         {
             _sqlQuery.Lesser<T>(item);
 
             return this;
         }
 
-        public SqlDeleteDocument LesserEqual<T>(T item)
+        public IOrientDBQueryable LesserEqual<T>(T item)
         {
             _sqlQuery.LesserEqual<T>(item);
 
             return this;
         }
 
-        public SqlDeleteDocument Greater<T>(T item)
+        public IOrientDBQueryable Greater<T>(T item)
         {
             _sqlQuery.Greater<T>(item);
 
             return this;
         }
 
-        public SqlDeleteDocument GreaterEqual<T>(T item)
+        public IOrientDBQueryable GreaterEqual<T>(T item)
         {
             _sqlQuery.GreaterEqual<T>(item);
 
             return this;
         }
 
-        public SqlDeleteDocument Like<T>(T item)
+        public IOrientDBQueryable Like<T>(T item)
         {
             _sqlQuery.Like<T>(item);
 
             return this;
         }
 
-        public SqlDeleteDocument IsNull()
+        public IOrientDBQueryable IsNull()
         {
             _sqlQuery.IsNull();
 
             return this;
         }
 
-        public SqlDeleteDocument Contains<T>(T item)
+        public IOrientDBQueryable Contains<T>(T item)
         {
             _sqlQuery.Contains<T>(item);
 
             return this;
         }
 
-        public SqlDeleteDocument Contains<T>(string field, T value)
+        public IOrientDBQueryable Contains<T>(string field, T value)
         {
             _sqlQuery.Contains<T>(field, value);
 
@@ -168,7 +169,7 @@ namespace OrientDB.Net.SqlCommandBuilder
 
         #endregion
 
-        public SqlDeleteDocument Limit(int maxRecords)
+        public IOrientDBQueryable Limit(int maxRecords)
         {
             _sqlQuery.Limit(maxRecords);
 

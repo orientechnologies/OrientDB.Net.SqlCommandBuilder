@@ -9,9 +9,16 @@ namespace OrientDB.Net.SqlCommandBuilder
     {
         private SqlQuery _sqlQuery;
 
-        public SqlCreateDocument()
+        private SqlCreateDocument()
         {
             _sqlQuery = new SqlQuery();
+        }
+
+        public static IOCreateDocument CreateSqlCreate(string className = null)
+        {
+            if (string.IsNullOrWhiteSpace(className))
+                return new SqlCreateDocument();
+            return new SqlCreateDocument().Document(className);
         }
 
         #region Document

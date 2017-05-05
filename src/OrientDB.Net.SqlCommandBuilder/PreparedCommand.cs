@@ -13,11 +13,6 @@ namespace OrientDB.Net.SqlCommandBuilder
             _query = query;
         }
 
-        internal void SetConnection()
-        {
-          
-        }
-
         public override string ToString()
         {
             return _query;

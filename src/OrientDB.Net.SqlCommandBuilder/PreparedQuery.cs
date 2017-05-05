@@ -15,11 +15,6 @@ namespace OrientDB.Net.SqlCommandBuilder
             _fetchPlan = fetchPlan;
         }
 
-        internal void SetConnection()
-        {
-            
-        }
-
         public override string ToString()
         {
             return _query;
